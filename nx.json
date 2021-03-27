@@ -1,34 +1,29 @@
 {
   "implicitDependencies": {
     "angular.json": "*",
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
-    },
+    "package.json": { "dependencies": "*", "devDependencies": "*" },
     "tsconfig.base.json": "*",
     "tslint.json": "*",
     ".eslintrc.json": "*",
     "nx.json": "*"
   },
-  "affected": {
-    "defaultBase": "master"
-  },
+  "affected": { "defaultBase": "main" },
   "npmScope": "jankless",
   "tasksRunnerOptions": {
     "default": {
-      "runner": "@nrwl/workspace/tasks-runners/default",
+      "runner": "@nrwl/nx-cloud",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "cacheableOperations": ["build", "lint", "test", "e2e"],
+        "accessToken": "N2E2ZjI3YjYtYjU4MS00OGRjLWJhMjQtNzFkZTJlNTg2N2FjfHJlYWQtd3JpdGU=",
+        "canTrackAnalytics": false,
+        "showUsageWarnings": true
       }
     }
   },
   "projects": {
-    "www": {
-      "tags": []
-    },
-    "www-e2e": {
-      "tags": [],
-      "implicitDependencies": ["www"]
-    }
+    "ui": { "tags": [] },
+    "data": { "tags": [] },
+    "jankless": { "tags": [] },
+    "jankless-e2e": { "tags": [], "implicitDependencies": ["jankless"] }
   }
 }

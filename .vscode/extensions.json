@@ -1,9 +1,15 @@
 {
   "recommendations": [
-    "nrwl.angular-console",
     "angular.ng-template",
-    "ms-vscode.vscode-typescript-tslint-plugin",
+    "christian-kohler.npm-intellisense",
+    "christian-kohler.path-intellisense",
+    "dbaeumer.vscode-eslint",
+    "dracula-theme.theme-dracula",
     "esbenp.prettier-vscode",
+    "ms-vscode.vscode-typescript-tslint-plugin",
+    "nrwl.angular-console",
+    "waderyan.gitblame",
+    "zignd.html-css-class-completion",
     "firsttris.vscode-jest-runner"
   ]
 }

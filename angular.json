@@ -1,62 +1,107 @@
 {
   "version": 1,
   "cli": {
-    "defaultCollection": "@nrwl/angular"
+    "defaultCollection": "@nrwl/angular",
+    "packageManager": "yarn"
   },
-  "defaultProject": "www",
   "schematics": {
-    "@nrwl/angular": {
-      "application": {
-        "linter": "eslint"
-      },
-      "library": {
-        "linter": "eslint"
-      },
-      "storybook-configuration": {
-        "linter": "eslint"
-      }
-    },
     "@nrwl/angular:application": {
-      "style": "scss",
+      "style": "css",
       "linter": "eslint",
       "unitTestRunner": "jest",
       "e2eTestRunner": "cypress"
     },
     "@nrwl/angular:library": {
-      "style": "scss",
+      "style": "css",
       "linter": "eslint",
       "unitTestRunner": "jest"
     },
     "@nrwl/angular:component": {
-      "style": "scss"
+      "style": "css"
     }
   },
   "projects": {
-    "www": {
+    "ui": {
+      "projectType": "library",
+      "root": "libs/ui",
+      "sourceRoot": "libs/ui/src",
+      "prefix": "jankless",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/ui/tsconfig.lib.json",
+            "project": "libs/ui/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/ui/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/ui/src/**/*.ts", "libs/ui/src/**/*.html"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui"],
+          "options": {
+            "jestConfig": "libs/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "data": {
+      "projectType": "library",
+      "root": "libs/data",
+      "sourceRoot": "libs/data/src",
+      "prefix": "jankless",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/data/src/**/*.ts", "libs/data/src/**/*.html"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/data"],
+          "options": {
+            "jestConfig": "libs/data/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "jankless": {
       "projectType": "application",
-      "root": "apps/www",
-      "sourceRoot": "apps/www/src",
+      "root": "apps/jankless",
+      "sourceRoot": "apps/jankless/src",
       "prefix": "jankless",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/apps/www",
-            "index": "apps/www/src/index.html",
-            "main": "apps/www/src/main.ts",
-            "polyfills": "apps/www/src/polyfills.ts",
-            "tsConfig": "apps/www/tsconfig.app.json",
+            "outputPath": "dist/apps/jankless",
+            "index": "apps/jankless/src/index.html",
+            "main": "apps/jankless/src/main.ts",
+            "polyfills": "apps/jankless/src/polyfills.ts",
+            "tsConfig": "apps/jankless/tsconfig.app.json",
             "aot": true,
-            "assets": ["apps/www/src/favicon.ico", "apps/www/src/assets"],
-            "styles": ["apps/www/src/styles.scss"],
+            "assets": ["apps/jankless/src/favicon.ico", "apps/jankless/src/assets"],
+            "styles": ["apps/jankless/src/styles.css"],
             "scripts": []
           },
           "configurations": {
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "apps/www/src/environments/environment.ts",
-                  "with": "apps/www/src/environments/environment.prod.ts"
+                  "replace": "apps/jankless/src/environments/environment.ts",
+                  "with": "apps/jankless/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -84,64 +129,62 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "www:build"
+            "browserTarget": "jankless:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "www:build:production"
+              "browserTarget": "jankless:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "www:build"
+            "browserTarget": "jankless:build"
           }
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/www/src/**/*.ts",
-              "apps/www/src/**/*.html"
-            ]
+            "lintFilePatterns": ["apps/jankless/src/**/*.ts", "apps/jankless/src/**/*.html"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/www"],
+          "outputs": ["coverage/apps/jankless"],
           "options": {
-            "jestConfig": "apps/www/jest.config.js",
+            "jestConfig": "apps/jankless/jest.config.js",
             "passWithNoTests": true
           }
         }
       }
     },
-    "www-e2e": {
-      "root": "apps/www-e2e",
-      "sourceRoot": "apps/www-e2e/src",
+    "jankless-e2e": {
+      "root": "apps/jankless-e2e",
+      "sourceRoot": "apps/jankless-e2e/src",
       "projectType": "application",
       "architect": {
         "e2e": {
           "builder": "@nrwl/cypress:cypress",
           "options": {
-            "cypressConfig": "apps/www-e2e/cypress.json",
-            "tsConfig": "apps/www-e2e/tsconfig.e2e.json",
-            "devServerTarget": "www:serve"
+            "cypressConfig": "apps/jankless-e2e/cypress.json",
+            "tsConfig": "apps/jankless-e2e/tsconfig.e2e.json",
+            "devServerTarget": "jankless:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "www:serve:production"
+              "devServerTarget": "jankless:serve:production"
             }
           }
         },
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/www-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": ["apps/jankless-e2e/**/*.{js,ts}"]
           }
         }
       }
     }
-  }
+  },
+  "defaultProject": "ui"
 }

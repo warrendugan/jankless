@@ -5,7 +5,7 @@
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
       "parserOptions": {
-        "project": "apps/www-e2e/tsconfig.*?.json"
+        "project": "apps/jankless-e2e/tsconfig.*?.json"
       },
       "rules": {}
     },

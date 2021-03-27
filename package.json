@@ -3,31 +3,32 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "ng": "nx",
-    "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
-    "nx": "nx",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "nx workspace-lint && ng lint",
-    "e2e": "ng e2e",
     "affected:apps": "nx affected:apps",
-    "affected:libs": "nx affected:libs",
     "affected:build": "nx affected:build",
-    "affected:e2e": "nx affected:e2e",
-    "affected:test": "nx affected:test",
-    "affected:lint": "nx affected:lint",
     "affected:dep-graph": "nx affected:dep-graph",
+    "affected:e2e": "nx affected:e2e",
+    "affected:libs": "nx affected:libs",
+    "affected:lint": "nx affected:lint",
+    "affected:test": "nx affected:test",
     "affected": "nx affected",
-    "format": "nx format:write",
-    "format:write": "nx format:write",
-    "format:check": "nx format:check",
-    "update": "nx migrate latest",
-    "workspace-generator": "nx workspace-generator",
+    "build": "ng build",
+    "commit": "cz",
     "dep-graph": "nx dep-graph",
-    "help": "nx help"
+    "e2e": "ng e2e",
+    "format:check": "nx format:check",
+    "format:write": "nx format:write",
+    "format": "nx format:write",
+    "help": "nx help",
+    "lint": "nx workspace-lint && ng lint",
+    "ng": "nx",
+    "nx": "nx",
+    "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
+    "reinstall": "rm yarn.lock && rm -rf node_modules/ && yarn",
+    "start": "ng serve",
+    "test": "ng test",
+    "update": "nx migrate latest",
+    "workspace-generator": "nx workspace-generator"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "^11.2.0",
     "@angular/common": "^11.2.0",
@@ -38,6 +39,7 @@
     "@angular/platform-browser-dynamic": "^11.2.0",
     "@angular/router": "^11.2.0",
     "@nrwl/angular": "11.5.2",
+    "bootstrap": "^5.0.0-beta3",
     "rxjs": "~6.6.3",
     "tslib": "^2.0.0",
     "zone.js": "^0.10.2"
@@ -63,15 +65,29 @@
     "@typescript-eslint/eslint-plugin": "4.3.0",
     "@typescript-eslint/parser": "4.3.0",
     "cypress": "^6.0.1",
+    "cz-conventional-changelog": "3.3.0",
     "dotenv": "8.2.0",
     "eslint": "7.10.0",
     "eslint-config-prettier": "8.1.0",
     "eslint-plugin-cypress": "^2.10.3",
+    "husky": "^5.2.0",
     "jest": "26.2.2",
     "jest-preset-angular": "8.3.2",
-    "prettier": "2.2.1",
+    "ng-packagr": "^11.0.0",
+    "prettier": "^2.2.1",
     "ts-jest": "26.4.0",
     "ts-node": "~9.1.1",
     "typescript": "~4.0.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "nx format:write && nx affected:lint",
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+    }
   }
 }
