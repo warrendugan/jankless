@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
   public fields: FormlyFieldConfig[] = [
     {
       fieldGroupClassName: 'row',
-      template: '<h2>Test</h2>',
+      template: '<h2 class="my-5">Basic Information</h2>',
     },
     {
       fieldGroupClassName: 'row',
@@ -134,12 +134,12 @@ export class AppComponent implements OnInit {
     });
   }
 
-  handleClick(event: any) {
+  handleClick(_event: any) {
     const field = this.form.controls.date;
     field.disabled ? field.enable() : field.disable();
   }
 
-  submit(event: any) {
+  submit(_event: any) {
     console.log('submit', this.form.getRawValue());
   }
 
