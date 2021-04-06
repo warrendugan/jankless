@@ -22,7 +22,6 @@
   },
   "projects": {
     "ui": { "tags": [] },
-    "data": { "tags": [] },
     "jankless": { "tags": [] },
     "jankless-e2e": { "tags": [], "implicitDependencies": ["jankless"] }
   }

@@ -15,8 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@jankless/ui": ["libs/ui/src/index.ts"],
-      "@jankless/data": ["libs/data/src/index.ts"]
+      "@jankless/ui": ["libs/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

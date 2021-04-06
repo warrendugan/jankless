@@ -42,37 +42,26 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/ui/src/**/*.ts", "libs/ui/src/**/*.html"]
+            "lintFilePatterns": [
+              "libs/ui/src/**/*.ts",
+              "libs/ui/src/**/*.html"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/ui"],
+          "outputs": [
+            "coverage/libs/ui"
+          ],
           "options": {
             "jestConfig": "libs/ui/jest.config.js",
             "passWithNoTests": true
           }
-        }
-      }
-    },
-    "data": {
-      "projectType": "library",
-      "root": "libs/data",
-      "sourceRoot": "libs/data/src",
-      "prefix": "jankless",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/data/src/**/*.ts", "libs/data/src/**/*.html"]
-          }
         },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/data"],
+        "publish": {
+          "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "jestConfig": "libs/data/jest.config.js",
-            "passWithNoTests": true
+            "command": "ng build ui --prod && cd dist/libs/ui/ && npm pack && npm publish --access public"
           }
         }
       }
@@ -92,8 +81,13 @@
             "polyfills": "apps/jankless/src/polyfills.ts",
             "tsConfig": "apps/jankless/tsconfig.app.json",
             "aot": true,
-            "assets": ["apps/jankless/src/favicon.ico", "apps/jankless/src/assets"],
-            "styles": ["apps/jankless/src/styles.css"],
+            "assets": [
+              "apps/jankless/src/favicon.ico",
+              "apps/jankless/src/assets"
+            ],
+            "styles": [
+              "apps/jankless/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -146,12 +140,17 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/jankless/src/**/*.ts", "apps/jankless/src/**/*.html"]
+            "lintFilePatterns": [
+              "apps/jankless/src/**/*.ts",
+              "apps/jankless/src/**/*.html"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/jankless"],
+          "outputs": [
+            "coverage/apps/jankless"
+          ],
           "options": {
             "jestConfig": "apps/jankless/jest.config.js",
             "passWithNoTests": true
@@ -180,11 +179,13 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/jankless-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/jankless-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
     }
   },
-  "defaultProject": "ui"
+  "defaultProject": "jankless"
 }

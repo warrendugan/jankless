@@ -1,0 +1,33 @@
+<input
+  *ngIf="isType(to.type, InputTypes)"
+  [formControl]="formControl"
+  [formlyAttributes]="field"
+  [type]="to.type || InputTypes.Text"
+  [placeholder]="to.placeholder || ''"
+  [attr.readOnly]="to.readonly"
+  [attr.autocomplete]="to.autoComplete || ''"
+  [attr.inputmode]="to.inputMode || ''"
+  [attr.autocapitalize]="to.autoCapitalize || ''"
+  [attr.enterkeyhint]="to.enterKeyHint || ''"
+  [class.border-danger]="showError"
+  [mask]="to.mask"
+  [name]="id"
+  [value]="to.value"
+  ui
+/>
+
+<button
+  *ngIf="isType(to.type, ButtonTypes)"
+  [formlyAttributes]="field"
+  [type]="to.type"
+  [attr.readOnly]="to.readonly"
+  [class]="to.className || ''"
+  [disabled]="to.disabled"
+  [name]="id"
+  [value]="to.value"
+  [label]="to.value || to.type | titlecase"
+  (click)="onClick($event)"
+  ui
+>
+  {{ to.value || to.type | titlecase }}
+</button>

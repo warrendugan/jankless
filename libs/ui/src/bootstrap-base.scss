@@ -1,0 +1,32 @@
+@import '~bootstrap/scss/bootstrap-grid.scss';
+@import '~bootstrap/scss/bootstrap-reboot.scss';
+@import '~bootstrap/scss/bootstrap-utilities.scss';
+
+:root {
+  @each $color, $value in $colors {
+    --#{$color}: #{$value};
+  }
+
+  @each $color, $value in $theme-colors {
+    --#{$color}: #{$value};
+  }
+
+  @each $spacer, $value in $spacers {
+    --spacer-#{$spacer}: #{$value};
+  }
+
+  @each $breakpoint, $value in $grid-breakpoints {
+    --media-#{$breakpoint}: #{$value};
+  }
+
+  $shadows: (
+    'shadow': $box-shadow,
+    'shadow-sm': $box-shadow-sm,
+    'shadow-lg': $box-shadow-lg,
+    'shadow-inset': $box-shadow-inset,
+  );
+
+  @each $shadow, $value in $shadows {
+    --#{$shadow}: #{$value};
+  }
+}

@@ -1,3 +1,3 @@
 module.exports = {
-  projects: ['<rootDir>/libs/ui', '<rootDir>/libs/data', '<rootDir>/apps/jankless'],
+  projects: ['<rootDir>/libs/ui', '<rootDir>/apps/jankless'],
 };

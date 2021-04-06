@@ -1,0 +1,54 @@
+input {
+  width: 100%;
+  max-width: 300px;
+  padding: 0.25rem 0.5rem;
+  caret-color: currentColor;
+  border-style: solid;
+  border-radius: var(--spacer-1);
+  outline-offset: 1px;
+
+  &:focus {
+    outline: 1px dashed currentColor;
+  }
+}
+
+/* Simple styles for date input polyfill */
+date-input-polyfill {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+
+  .yearSelect,
+  .monthSelect {
+    &-wrapper select {
+      border: none !important;
+      appearance: menulist;
+    }
+  }
+}
+
+/* Improve native datepicker usability */
+input[type='date'] {
+  position: relative;
+
+  /* Styles the button that toggles the native datepicker */
+  &::-webkit-calendar-picker-indicator {
+    background: transparent;
+    color: transparent;
+    cursor: pointer;
+    margin: 0;
+    height: auto;
+    width: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+/* Required for animation to work properly */
+formly-field,
+small.error {
+  display: block !important;
+}

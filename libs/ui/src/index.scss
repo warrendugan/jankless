@@ -1,0 +1,24 @@
+@import './bootstrap-base';
+@import './lib/input/input';
+
+hr {
+  &[label] {
+    background-color: initial;
+    border: none;
+    border-top: 1px solid #bdbdbd;
+    color: #424242;
+    overflow: visible;
+    text-align: center;
+    text-transform: uppercase;
+
+    &:after {
+      background-color: var(--white);
+      color: currentColor;
+      content: attr(label);
+      font-size: 12px;
+      padding: var(--spacer-2);
+      position: relative;
+      top: -13px;
+    }
+  }
+}

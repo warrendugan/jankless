@@ -1,0 +1,18 @@
+<div
+  [@slideInOut]="field.hide ? 'out' : 'in'"
+  [class.mb-0]="field.hide"
+  [class.mb-3]="!field.hide && isType(field.type, InputTypes)"
+  [class.text-danger]="showError"
+>
+  <label *ngIf="to.label" [for]="id"
+    ><small>{{ to.label | titlecase }}</small></label
+  >
+  <div class="control" [class.mt-1]="to.label">
+    <ng-container #fieldComponent></ng-container>
+    <div [@slideInOut]="!showError ? 'out' : 'in'" class="text-danger" [attr.for]="id">
+      <small *ngIf="showError">
+        {{ to.errorMessage }}
+      </small>
+    </div>
+  </div>
+</div>
