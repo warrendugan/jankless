@@ -5,7 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Formly
-import { FormlyModule, FORMLY_CONFIG } from '@ngx-formly/core';
+import { FormlyModule } from '@ngx-formly/core';
 
 // UI
 import { ButtonDirective } from './button/button.directive';
