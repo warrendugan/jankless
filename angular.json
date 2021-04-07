@@ -58,10 +58,27 @@
             "passWithNoTests": true
           }
         },
+        "readme": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              "cd libs/ui/ && npx typedoc --plugin typedoc-plugin-markdown src/lib/ui.module.ts --tsconfig ./tsconfig.json",
+              "cp libs/ui/docs/README.md libs/ui/README.md"
+            ],
+            "parallel": false
+          }
+        },
         "publish": {
           "builder": "@nrwl/workspace:run-commands",
           "options": {
-            "command": "ng build ui --prod && cd dist/libs/ui/ && npm pack && npm publish --access public"
+            "commands": [
+              "cd libs/ui/ && npm version patch",
+              "ng run ui:readme",
+              "ng build ui --prod",
+              "cd libs/ui/ && find . -name '*.scss' | cpio -updm ../../dist/libs/ui/scss",
+              "cd dist/libs/ui/ && npm pack && npm publish --access public"
+            ],
+            "parallel": false
           }
         }
       }
