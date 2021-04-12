@@ -1,14 +1,13 @@
 input {
   width: 100%;
-  max-width: 300px;
   padding: 0.25rem 0.5rem;
-  caret-color: currentColor;
+  caret-color: var(--primary);
   border-style: solid;
   border-radius: var(--spacer-1);
-  outline-offset: 1px;
+  font-size: 1rem;
 
-  &:focus {
-    outline: 1px dashed currentColor;
+  @include media-breakpoint-up(sm) {
+    max-width: 300px;
   }
 }
 

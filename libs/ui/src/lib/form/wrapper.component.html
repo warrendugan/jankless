@@ -3,13 +3,15 @@
   [class.mb-0]="field.hide"
   [class.mb-3]="!field.hide && isType(field.type, InputTypes)"
   [class.text-danger]="showError"
+  [class.text-primary]="field.focus"
+  [class.text-gray]="to.disabled"
 >
-  <label *ngIf="to.label" [for]="id"
+  <label *ngIf="to.label" [for]="id" class="fw-bold"
     ><small>{{ to.label | titlecase }}</small></label
   >
-  <div class="control" [class.mt-1]="to.label">
+  <div [class.mt-1]="to.label">
     <ng-container #fieldComponent></ng-container>
-    <div [@slideInOut]="!showError ? 'out' : 'in'" class="text-danger" [attr.for]="id">
+    <div [@slideInOut]="!showError ? 'out' : 'in'" class="text-danger">
       <small *ngIf="showError">
         {{ to.errorMessage }}
       </small>

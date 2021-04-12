@@ -5,7 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Formly
-import { FormlyModule } from '@ngx-formly/core';
+import { ConfigOption, FormlyModule } from '@ngx-formly/core';
 
 // UI
 import { ButtonDirective } from './button/button.directive';
@@ -58,7 +58,7 @@ export class UiModule {
         ngModule: UiModule,
         providers: [],
       },
-      FormlyModule.forRoot(formConfig),
+      FormlyModule.forRoot(formConfig as ConfigOption),
       NgxMaskModule.forRoot(),
     ];
   }

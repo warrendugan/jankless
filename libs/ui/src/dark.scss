@@ -1,0 +1,22 @@
+@media (prefers-color-scheme: dark) {
+  body,
+  input {
+    background: var(--dark);
+    color: var(--light);
+
+    &::placeholder {
+      color: var(--light-gray);
+    }
+  }
+
+  hr {
+    &[aria-label] {
+      border-top: 1px solid var(--light);
+      color: var(--light);
+
+      &:after {
+        background-color: var(--dark);
+      }
+    }
+  }
+}

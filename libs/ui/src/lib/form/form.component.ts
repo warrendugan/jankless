@@ -1,4 +1,6 @@
 import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
   selector: 'form[ui]',
@@ -6,9 +8,7 @@ import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FormComponent {
-  @Input() fields;
-  @Input() form;
-  @Input() model;
-
-  constructor() {}
+  @Input() fields: FormlyFieldConfig[] = [];
+  @Input() form: FormGroup = new FormGroup({});
+  @Input() model: unknown;
 }

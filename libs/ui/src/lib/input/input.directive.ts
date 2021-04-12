@@ -1,11 +1,11 @@
 import { Directive, ElementRef, HostBinding, Input } from '@angular/core';
-import { InputTypes, EnterKeyHints, InputModes, AutoCapitalizationHints } from '.';
+import { InputTypes, EnterKeyHints, InputModes, AutoCapitalizationHints, AutoComplete } from '.';
 
 @Directive({
   selector: 'input[ui]',
 })
 export class InputDirective {
-  @Input() type: InputTypes = InputTypes.Text;
+  @Input() type: InputTypes | string = InputTypes.Text;
   @HostBinding('type')
   get _type(): string {
     return this.type;
@@ -26,7 +26,13 @@ export class InputDirective {
   @Input() autoCapitalize?: AutoCapitalizationHints = AutoCapitalizationHints.None;
   @HostBinding('autocapitalize')
   get _autoCapitalize(): string {
-    return this.autoCapitalize;
+    return this.autoCapitalize as string;
+  }
+
+  @Input() autoComplete?: AutoComplete = AutoComplete.Off;
+  @HostBinding('autocomplete')
+  get _autoComplete(): string {
+    return this.autoComplete as string;
   }
 
   @HostBinding('attr.date-format')
@@ -40,8 +46,4 @@ export class InputDirective {
   }
 
   constructor(public el: ElementRef) {}
-
-  ngOnInit() {
-    this.el.nativeElement.classList.add('input');
-  }
 }

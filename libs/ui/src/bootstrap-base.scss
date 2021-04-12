@@ -2,12 +2,20 @@
 @import '~bootstrap/scss/bootstrap-reboot.scss';
 @import '~bootstrap/scss/bootstrap-utilities.scss';
 
+$custom-colors: (
+  'primary-light': rgba($primary, 0.3),
+);
+
 :root {
   @each $color, $value in $colors {
     --#{$color}: #{$value};
   }
 
   @each $color, $value in $theme-colors {
+    --#{$color}: #{$value};
+  }
+
+  @each $color, $value in $custom-colors {
     --#{$color}: #{$value};
   }
 
@@ -29,4 +37,23 @@
   @each $shadow, $value in $shadows {
     --#{$shadow}: #{$value};
   }
+}
+
+@mixin modifiers($map, $attribute, $prefix: '-', $separator: '-') {
+  @each $key, $value in $map {
+    &#{$prefix}#{$key} {
+      #{$attribute}: $value !important;
+    }
+  }
+}
+
+.text {
+  @include modifiers($colors, 'color');
+  @include modifiers($custom-colors, 'color');
+}
+
+.outline {
+  @include modifiers($colors, 'outline-color');
+  @include modifiers($theme-colors, 'outline-color');
+  @include modifiers($custom-colors, 'outline-color');
 }

@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { FieldWrapper } from '@ngx-formly/core';
 import { ButtonTypes } from '../button';
 import { InputTypes } from '../input';
@@ -18,7 +18,9 @@ export class WrapperComponent extends FieldWrapper {
     super();
   }
 
-  isType(typeName, type) {
-    return Object.values(type).includes(typeName);
+  isType(typeName: string | undefined, type: typeof InputTypes | typeof ButtonTypes) {
+    if (typeName) {
+      return Object.values(type).includes(typeName);
+    }
   }
 }

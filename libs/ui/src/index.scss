@@ -1,20 +1,35 @@
 @import './bootstrap-base';
 @import './lib/input/input';
 
+body,
+input {
+  background-color: var(--light);
+  color: var(--dark);
+
+  &::selection {
+    background-color: var(--primary-light);
+  }
+
+  &::placeholder {
+    color: var(--gray);
+  }
+}
+
 hr {
-  &[label] {
+  &[aria-label] {
     background-color: initial;
     border: none;
-    border-top: 1px solid #bdbdbd;
-    color: #424242;
+    border-top: 1px solid var(--dark);
+    color: var(--dark);
     overflow: visible;
     text-align: center;
     text-transform: uppercase;
+    opacity: 0.65;
 
     &:after {
-      background-color: var(--white);
+      background-color: var(--light);
       color: currentColor;
-      content: attr(label);
+      content: attr(aria-label);
       font-size: 12px;
       padding: var(--spacer-2);
       position: relative;
@@ -22,3 +37,5 @@ hr {
     }
   }
 }
+
+// @import './dark';

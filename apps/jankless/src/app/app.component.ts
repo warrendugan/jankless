@@ -1,27 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { ButtonTypes, InputTypes } from '@jankless/ui';
+import { AutoCapitalizationHints, ButtonTypes, InputTypes } from '@jankless/ui';
 import { FormlyFieldConfig } from '@ngx-formly/core';
-
-export interface _$ extends NodeListOf<Element> {
-  hide?: any;
-  show?: any;
-  toggle?: any;
-  each?: any;
-}
-export let $: (arg: string) => _$;
 
 @Component({
   selector: 'jankless-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   public form = new FormGroup({});
   public fields: FormlyFieldConfig[] = [
     {
       fieldGroupClassName: 'row',
-      template: '<h2 class="my-5">Basic Information</h2>',
+      template: '<h2 class="my-4">Basic Information</h2>',
     },
     {
       fieldGroupClassName: 'row',
@@ -30,32 +22,30 @@ export class AppComponent implements OnInit {
           key: 'email',
           className: 'col-12 col-md-6',
           type: InputTypes.Email,
-          defaultValue: 'warrendugan@gmail.com',
+        },
+        {
+          key: 'phone',
+          className: 'col-12 col-md-6',
+          type: InputTypes.Tel,
         },
         {
           key: 'name',
           className: 'col-12 col-md-6',
           type: InputTypes.Text,
           hideExpression: this.hideName.bind(this),
-          defaultValue: 'Warren Dugan',
           templateOptions: {
             required: true,
             label: 'Name',
             placeholder: 'Enter Name',
             errorMessage: 'Please enter your name',
+            autoCapitalize: AutoCapitalizationHints.Words,
           },
-        },
-        {
-          key: 'phone',
-          className: 'col-12 col-md-6',
-          type: InputTypes.Tel,
-          defaultValue: '9495734825',
         },
       ],
     },
     {
       fieldGroupClassName: 'row',
-      template: '<hr label="try the date toggle">',
+      template: '<hr aria-label="Try the date toggle">',
     },
     {
       fieldGroupClassName: 'row',
@@ -74,7 +64,6 @@ export class AppComponent implements OnInit {
           templateOptions: {
             value: 'toggle date field',
             onClick: this.handleClick.bind(this),
-            className: '',
           },
         },
       ],
@@ -88,59 +77,13 @@ export class AppComponent implements OnInit {
     },
   ];
 
-  constructor() {}
-
-  ngOnInit() {
-    $ = (selector) => {
-      return {
-        ...document.querySelectorAll(selector),
-        hide: this.hide,
-        show: this.show,
-        toggle: this.toggle,
-        each: this.each,
-      };
-    };
-  }
-
-  toggle() {
-    Object.entries(this).forEach(([key, value]) => {
-      if (+key >= 0) {
-        value.classList.toggle('d-none');
-      }
-    });
-  }
-
-  hide() {
-    Object.entries(this).forEach(([key, value]) => {
-      if (+key >= 0) {
-        value.classList.add('d-none');
-      }
-    });
-  }
-
-  show() {
-    Object.entries(this).forEach(([key, value]) => {
-      if (+key >= 0) {
-        value.classList.remove('d-none');
-      }
-    });
-  }
-
-  each(cb: any) {
-    Object.entries(this).forEach(([key, value]) => {
-      if (+key >= 0) {
-        return cb(value);
-      }
-    });
-  }
-
-  handleClick(_event: any) {
+  handleClick() {
     const field = this.form.controls.date;
     field.disabled ? field.enable() : field.disable();
   }
 
-  submit(_event: any) {
-    console.log('submit', this.form.getRawValue());
+  submit() {
+    alert(`Hello, ${this.form.controls.name.value}`);
   }
 
   hideName() {
