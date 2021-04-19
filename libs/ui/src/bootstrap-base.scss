@@ -27,6 +27,7 @@ $custom-colors: (
     --media-#{$breakpoint}: #{$value};
   }
 
+  $box-shadow-inset: inset 0px 0px 10px 5px rgb(0 0 0 / 10%);
   $shadows: (
     'shadow': $box-shadow,
     'shadow-sm': $box-shadow-sm,
@@ -37,6 +38,8 @@ $custom-colors: (
   @each $shadow, $value in $shadows {
     --#{$shadow}: #{$value};
   }
+
+  --transition: 200ms all ease;
 }
 
 @mixin modifiers($map, $attribute, $prefix: '-', $separator: '-') {

@@ -10,6 +10,9 @@
   "editor.fontLigatures": true,
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true
+  },
   "editor.minimap.enabled": false,
   "editor.multiCursorModifier": "ctrlCmd",
   "editor.suggestSelection": "first",

@@ -1,3 +1,14 @@
+<header class="py-2">
+  <div class="container">
+    <h1 class="m-0">Jankless</h1>
+  </div>
+</header>
 <div class="container">
   <form ui [form]="form" [fields]="fields"></form>
 </div>
+
+<footer>
+  <button class="d-block ms-auto" ui toggle (click)="toggleTheme()">
+    &#9790;<small class="d-block text-uppercase">Switch</small>
+  </button>
+</footer>

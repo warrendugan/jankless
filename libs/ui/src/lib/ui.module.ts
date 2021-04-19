@@ -4,17 +4,17 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-// Formly
+// 3rd Party
 import { ConfigOption, FormlyModule } from '@ngx-formly/core';
+import { NgxMaskModule } from 'ngx-mask';
 
-// UI
+// Jankless
 import { ButtonDirective } from './button/button.directive';
 import { InputDirective } from './input/input.directive';
 import { FormComponent } from './form/form.component';
 import { FieldComponent } from './form/field.component';
 import { formConfig } from './form/form.config';
 import { WrapperComponent } from './form/wrapper.component';
-import { NgxMaskModule } from 'ngx-mask';
 
 const DEPENDENCIES = {
   Angular: {
@@ -23,9 +23,9 @@ const DEPENDENCIES = {
       exports: [CommonModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule],
     },
   },
-  Formly: {
+  ThirdParty: {
     modules: {
-      imports: [FormlyModule, NgxMaskModule],
+      imports: [FormlyModule.forRoot(formConfig as ConfigOption), NgxMaskModule.forRoot()],
       exports: [FormlyModule],
     },
   },
@@ -42,11 +42,11 @@ const DEPENDENCIES = {
 };
 
 @NgModule({
-  imports: [...DEPENDENCIES.Angular.modules.imports, ...DEPENDENCIES.Formly.modules.imports],
+  imports: [...DEPENDENCIES.Angular.modules.imports, ...DEPENDENCIES.ThirdParty.modules.imports],
   declarations: [...DEPENDENCIES.UI.directives.declarations, ...DEPENDENCIES.UI.components.declarations],
   exports: [
     ...DEPENDENCIES.Angular.modules.exports,
-    ...DEPENDENCIES.Formly.modules.exports,
+    ...DEPENDENCIES.ThirdParty.modules.exports,
     ...DEPENDENCIES.UI.directives.exports,
     ...DEPENDENCIES.UI.components.exports,
   ],
@@ -58,8 +58,6 @@ export class UiModule {
         ngModule: UiModule,
         providers: [],
       },
-      FormlyModule.forRoot(formConfig as ConfigOption),
-      NgxMaskModule.forRoot(),
     ];
   }
 }

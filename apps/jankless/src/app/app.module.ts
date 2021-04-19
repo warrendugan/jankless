@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { UiModule } from '@jankless/ui';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UiModule } from '@jankless/ui';
 
 @NgModule({
   declarations: [AppComponent],

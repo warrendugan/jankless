@@ -1,12 +1,20 @@
-@media (prefers-color-scheme: dark) {
-  body,
-  input {
-    background: var(--dark);
-    color: var(--light);
+@mixin dark() {
+  background: var(--dark);
+  color: var(--light);
 
-    &::placeholder {
-      color: var(--light-gray);
-    }
+  &::placeholder {
+    color: var(--light-gray);
+  }
+}
+
+body.dark {
+  @include dark();
+}
+
+.dark {
+  input,
+  header {
+    @include dark();
   }
 
   hr {

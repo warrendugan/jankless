@@ -5,6 +5,7 @@ body,
 input {
   background-color: var(--light);
   color: var(--dark);
+  transition: var(--transition);
 
   &::selection {
     background-color: var(--primary-light);
@@ -34,8 +35,30 @@ hr {
       padding: var(--spacer-2);
       position: relative;
       top: -14px;
+      transition: var(--transition);
     }
   }
 }
 
-// @import './dark';
+button {
+  background-color: var(--primary);
+  border: 1px solid var(--light-gray);
+  color: var(--white);
+  padding: var(--spacer-2) var(--spacer-4);
+
+  &[toggle] {
+    padding: var(--spacer-1);
+  }
+
+  &[disabled] {
+    background-color: var(--primary-light);
+  }
+}
+
+header {
+  background: var(--light);
+  color: var(--dark);
+  box-shadow: var(--shadow-inset);
+}
+
+@import './dark';
