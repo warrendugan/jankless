@@ -27,4 +27,8 @@ body.dark {
       }
     }
   }
+
+  button:focus {
+    border-color: var(--light);
+  }
 }
