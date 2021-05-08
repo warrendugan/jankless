@@ -134,4 +134,8 @@ export class AppComponent implements OnInit {
   set userColorScheme(name: Theme) {
     localStorage.setItem(this.LS_KEY, name);
   }
+
+  get date(): Date {
+    return new Date();
+  }
 }

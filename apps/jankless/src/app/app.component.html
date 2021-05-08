@@ -1,14 +1,29 @@
-<header class="py-2 bg-primary">
+<header class="py-2 bg-primary mb-3">
   <div class="container">
     <h1 class="m-0 text-white">Jankless</h1>
   </div>
 </header>
 <div class="container">
-  <form ui [form]="form" [fields]="fields"></form>
+  <card>
+    <div>
+      <img width="100%" src="https://via.placeholder.com/1600x900.png" alt="Placeholder" />
+    </div>
+    <div class="p-3">
+      <h5>Some header</h5>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione nostrum quidem laborum dolorem odio maiores
+        consequuntur nemo magnam minus illo cumque reiciendis modi dignissimos, dolores consequatur quas ipsum, deserunt
+        tenetur.
+      </p>
+      <button>Learn More</button>
+    </div>
+  </card>
+</div>
+<div class="container">
+  <form [form]="form" [fields]="fields"></form>
 </div>
 
-<footer>
-  <button class="d-block ms-auto" ui toggle (click)="toggleTheme()">
-    &#9790;<small class="d-block text-uppercase">Switch</small>
-  </button>
-</footer>
+<button class="d-block ms-auto" toggle (click)="toggleTheme()">
+  &#9790;<small class="d-block text-uppercase">Switch</small>
+</button>
+<footer class="text-center">&copy; {{ date | date: 'yyyy' }}</footer>

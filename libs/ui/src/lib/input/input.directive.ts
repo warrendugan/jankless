@@ -1,8 +1,8 @@
 import { Directive, ElementRef, HostBinding, Input } from '@angular/core';
-import { InputTypes, EnterKeyHints, InputModes, AutoCapitalizationHints, AutoComplete } from '.';
+import { AutoCapitalizationHints, AutoComplete, EnterKeyHints, InputModes, InputTypes } from '.';
 
 @Directive({
-  selector: 'input[ui]',
+  selector: 'input',
 })
 export class InputDirective {
   @Input() type: InputTypes | string = InputTypes.Text;

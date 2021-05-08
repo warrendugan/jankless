@@ -1,6 +1,15 @@
-import { Directive } from '@angular/core';
+import { Directive, HostBinding, Input } from '@angular/core';
+import { ButtonTypes } from './button.enums';
 
 @Directive({
-  selector: 'button[ui]',
+  selector: 'button',
 })
-export class ButtonDirective {}
+export class ButtonDirective {
+  @HostBinding('type')
+  @Input('type')
+  public type: ButtonTypes | string | undefined = ButtonTypes.Button;
+
+  @HostBinding('toggle')
+  @Input('toggle')
+  public toggle?: Boolean | undefined | '';
+}

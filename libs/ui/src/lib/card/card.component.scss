@@ -1,0 +1,8 @@
+:host {
+  display: block;
+  background-color: var(--light);
+
+  .dark & {
+    background-color: var(--dark);
+  }
+}

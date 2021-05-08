@@ -1,20 +1,19 @@
 // Angular
-import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // 3rd Party
 import { ConfigOption, FormlyModule } from '@ngx-formly/core';
 import { NgxMaskModule } from 'ngx-mask';
-
 // Jankless
 import { ButtonDirective } from './button/button.directive';
-import { InputDirective } from './input/input.directive';
-import { FormComponent } from './form/form.component';
+import { CardComponent } from './card/card.component';
 import { FieldComponent } from './form/field.component';
+import { FormComponent } from './form/form.component';
 import { formConfig } from './form/form.config';
 import { WrapperComponent } from './form/wrapper.component';
+import { InputDirective } from './input/input.directive';
 
 const DEPENDENCIES = {
   Angular: {
@@ -35,8 +34,8 @@ const DEPENDENCIES = {
       exports: [ButtonDirective, InputDirective],
     },
     components: {
-      declarations: [FormComponent, FieldComponent, WrapperComponent],
-      exports: [FormComponent, FieldComponent, WrapperComponent],
+      declarations: [FormComponent, FieldComponent, WrapperComponent, CardComponent],
+      exports: [FormComponent, FieldComponent, WrapperComponent, CardComponent],
     },
   },
 };

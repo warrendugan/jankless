@@ -1,9 +1,29 @@
-small {
-  font-size: 8px;
-}
+:host {
+  position: relative;
+  min-height: 100vh;
 
-footer {
-  position: fixed;
-  bottom: 0;
-  right: 0;
+  small {
+    font-size: 8px;
+  }
+
+  button[toggle] {
+    position: fixed;
+    bottom: 4px;
+    right: 4px;
+  }
+
+  footer {
+    margin-top: 4rem;
+    padding: 2rem;
+    background-color: var(--light);
+    position: static;
+    bottom: 100%;
+    border-top: 1px dashed var(--dark);
+  }
+
+  .dark & {
+    footer {
+      background-color: var(--dark);
+    }
+  }
 }

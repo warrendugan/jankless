@@ -15,7 +15,6 @@
   [mask]="to.mask"
   [name]="id"
   [value]="to.value"
-  ui
 />
 
 <button
@@ -28,7 +27,6 @@
   [name]="id"
   [value]="to.value"
   (click)="onClick($event)"
-  ui
 >
   {{ to.value || to.type | titlecase }}
 </button>

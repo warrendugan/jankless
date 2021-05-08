@@ -1,22 +1,12 @@
-$primary: #c152bd;
-$gray: #536681;
-
 @import '~bootstrap/scss/bootstrap-grid.scss';
 @import '~bootstrap/scss/bootstrap-reboot.scss';
 @import '~bootstrap/scss/bootstrap-utilities.scss';
 
-$theme-colors: map-merge(
-  $theme-colors,
-  (
-    'dark': #004466,
-    'light': #00ffa2,
-    'primary': #c152bd,
-  )
-);
+$gray: #536681;
 $colors: map-merge(
   $colors,
   (
-    'gray': #536681,
+    'gray': $gray,
     'gray-dark': #2e3847,
   )
 );
