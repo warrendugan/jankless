@@ -4,9 +4,15 @@
   </div>
 </header>
 <div class="container">
-  <card>
+  <h5 class="my-4">Carousel</h5>
+</div>
+<div class="cards">
+  <card *ngFor="let item of [1055, 1051, 1052, 1043]">
     <div>
-      <img width="100%" src="https://via.placeholder.com/1600x900.png" alt="Placeholder" />
+      <picture>
+        <source type="image/webp" srcset="https://picsum.photos/id/{{item}}/1600/900.webp" />
+        <img width="100%" src="https://picsum.photos/id/{{ item }}/1600/900.jpg" alt="Placeholder" />
+      </picture>
     </div>
     <div class="p-3">
       <h5>Some header</h5>

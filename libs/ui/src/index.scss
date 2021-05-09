@@ -46,7 +46,7 @@ hr {
 
 button {
   background-color: var(--primary);
-  border: 2px solid var(--light-gray);
+  border: 2px solid var(--gray-light);
   border-radius: var(--spacer-1);
   color: var(--white);
   padding: var(--spacer-2) var(--spacer-4);
@@ -71,6 +71,10 @@ header {
   background: var(--light);
   color: var(--dark);
   box-shadow: var(--shadow-inset);
+}
+
+input {
+  padding: var(--spacer-2);
 }
 
 @import './dark';

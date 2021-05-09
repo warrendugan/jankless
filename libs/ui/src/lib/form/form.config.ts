@@ -1,15 +1,15 @@
 import { FormlyFieldConfig } from '@ngx-formly/core';
 import { ButtonTypes } from '../button';
 import {
-  InputTypes,
-  InputPlaceholders,
-  InputLabels,
-  InputPatterns,
+  AutoComplete,
+  EnterKeyHints,
   InputErrorMessages,
+  InputLabels,
   InputMasks,
   InputModes,
-  EnterKeyHints,
-  AutoComplete,
+  InputPatterns,
+  InputPlaceholders,
+  InputTypes,
 } from '../input';
 import { FieldComponent } from './field.component';
 import { WrapperComponent } from './wrapper.component';
@@ -74,7 +74,7 @@ export const formConfig = {
           errorMessage: InputErrorMessages.Tel,
           inputMode: InputModes.Tel,
           enterKeyHint: EnterKeyHints.Next,
-          autoComplete: AutoComplete.Tel,
+          autoComplete: AutoComplete.TelNational,
         },
       },
     },

@@ -3,7 +3,7 @@
   color: var(--light);
 
   &::placeholder {
-    color: var(--light-gray);
+    color: var(--gray-light);
   }
 }
 
@@ -12,7 +12,11 @@ body.dark {
 }
 
 .dark {
-  input,
+  input {
+    @include dark();
+    border-color: var(--gray-light);
+  }
+
   header {
     @include dark();
   }
