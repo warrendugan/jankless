@@ -1,10 +1,11 @@
 import 'date-input-polyfill';
 import { ButtonTypes } from './lib/button';
 import { InputTypes } from './lib/input';
-export * from './lib/ui.module';
-export * from './lib/input';
 export * from './lib/button';
+export * from './lib/dialog/dialog.component';
 export * from './lib/form';
+export * from './lib/input';
+export * from './lib/ui.module';
 
 export const exampleForm = [
   {

@@ -1,34 +1,20 @@
 <header class="py-2 bg-primary mb-3">
-  <div class="container">
-    <h1 class="m-0 text-white">Jankless</h1>
+  <div class="container d-flex align-items-center justify-content-between">
+    <a routerLink="home">
+      <h1 class="m-0 text-white">Jankless</h1>
+    </a>
+    <nav>
+      <ng-container *ngFor="let item of ['home', 'contact']">
+        <button ui [routerLink]="item" [routerLinkActive]="'d-none'">
+          {{ item | titlecase }}
+        </button>
+      </ng-container>
+    </nav>
   </div>
 </header>
-<div class="container">
-  <h5 class="my-4">Carousel</h5>
-</div>
-<div class="cards">
-  <card *ngFor="let item of [1055, 1051, 1052, 1043]">
-    <div>
-      <picture>
-        <source type="image/webp" srcset="https://picsum.photos/id/{{item}}/1600/900.webp" />
-        <img width="100%" src="https://picsum.photos/id/{{ item }}/1600/900.jpg" alt="Placeholder" />
-      </picture>
-    </div>
-    <div class="p-3">
-      <h5>Some header</h5>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione nostrum quidem laborum dolorem odio maiores
-        consequuntur nemo magnam minus illo cumque reiciendis modi dignissimos, dolores consequatur quas ipsum, deserunt
-        tenetur.
-      </p>
-      <button>Learn More</button>
-    </div>
-  </card>
-</div>
-<div class="container">
-  <form [form]="form" [fields]="fields"></form>
-</div>
 
+<router-outlet></router-outlet>
+<router-outlet name="modal"></router-outlet>
 <button class="d-block ms-auto" toggle (click)="toggleTheme()">
   &#9790;<small class="d-block text-uppercase">Switch</small>
 </button>

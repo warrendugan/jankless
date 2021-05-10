@@ -1,11 +1,30 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { AppComponent } from './app.component';
+import { RouterModule, Routes } from '@angular/router';
+import { DialogComponent } from '@jankless/ui';
+import { ContactComponent } from './contact/contact.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {
-    path: '',
-    component: AppComponent,
+    path: 'home',
+    component: HomeComponent,
+    data: {
+      metaTitle: 'Home Page',
+      metaDescription: 'Home page for jankless demo',
+    },
+  },
+  {
+    path: 'contact',
+    component: ContactComponent,
+    data: {
+      metaTitle: 'Contact Page',
+      metaDescription: 'Contact page for jankless demo',
+    },
+  },
+  {
+    path: 'dialog',
+    outlet: 'modal',
+    component: DialogComponent,
   },
 ];
 

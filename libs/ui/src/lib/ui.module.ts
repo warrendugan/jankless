@@ -9,6 +9,7 @@ import { NgxMaskModule } from 'ngx-mask';
 // Jankless
 import { ButtonDirective } from './button/button.directive';
 import { CardComponent } from './card/card.component';
+import { DialogComponent } from './dialog/dialog.component';
 import { FieldComponent } from './form/field.component';
 import { FormComponent } from './form/form.component';
 import { formConfig } from './form/form.config';
@@ -34,8 +35,8 @@ const DEPENDENCIES = {
       exports: [ButtonDirective, InputDirective],
     },
     components: {
-      declarations: [FormComponent, FieldComponent, WrapperComponent, CardComponent],
-      exports: [FormComponent, FieldComponent, WrapperComponent, CardComponent],
+      declarations: [FormComponent, FieldComponent, WrapperComponent, CardComponent, DialogComponent],
+      exports: [FormComponent, FieldComponent, WrapperComponent, CardComponent, DialogComponent],
     },
   },
 };
