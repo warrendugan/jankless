@@ -26,6 +26,10 @@ const routes: Routes = [
     outlet: 'modal',
     component: DialogComponent,
   },
+  {
+    path: '',
+    redirectTo: 'home',
+  },
 ];
 
 @NgModule({
