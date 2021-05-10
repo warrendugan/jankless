@@ -3,24 +3,24 @@
     Carousel
     <button class="px-2 ms-3" toggle ui [routerLink]="['', { outlets: { modal: 'dialog' } }]">&#9432;</button>
   </h5>
-</div>
 
-<div class="cards">
-  <card *ngFor="let item of [1055, 1051, 1052, 1043]">
-    <div>
-      <picture>
-        <source type="image/webp" srcset="https://picsum.photos/id/{{item}}/1600/900.webp" />
-        <img width="100%" src="https://picsum.photos/id/{{ item }}/1600/900.jpg" alt="Placeholder" />
-      </picture>
-    </div>
-    <div class="p-3">
-      <h5>Some header</h5>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione nostrum quidem laborum dolorem odio maiores
-        consequuntur nemo magnam minus illo cumque reiciendis modi dignissimos, dolores consequatur quas ipsum, deserunt
-        tenetur.
-      </p>
-      <button>Learn More</button>
-    </div>
-  </card>
+  <div class="cards">
+    <card *ngFor="let item of [1055, 1051, 1052, 1043]">
+      <div>
+        <picture>
+          <source type="image/webp" srcset="https://picsum.photos/id/{{item}}/1600/900.webp" />
+          <img width="100%" src="https://picsum.photos/id/{{ item }}/1600/900.jpg" alt="Placeholder" />
+        </picture>
+      </div>
+      <div class="p-3">
+        <h5>Some header</h5>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione nostrum quidem laborum dolorem odio maiores
+          consequuntur nemo magnam minus illo cumque reiciendis modi dignissimos, dolores consequatur quas ipsum,
+          deserunt tenetur.
+        </p>
+        <button>Learn More</button>
+      </div>
+    </card>
+  </div>
 </div>
