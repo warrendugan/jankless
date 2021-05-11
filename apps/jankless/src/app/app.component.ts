@@ -1,4 +1,5 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
+import { RouterService } from './router.service';
 
 export enum Theme {
   Light = 'light',
@@ -13,7 +14,7 @@ export enum Theme {
 export class AppComponent implements OnInit {
   private readonly LS_KEY = 'theme';
 
-  constructor(private renderer: Renderer2) {}
+  constructor(private renderer: Renderer2, private routerService: RouterService) {}
 
   ngOnInit() {
     this.themeClass = this.theme;
