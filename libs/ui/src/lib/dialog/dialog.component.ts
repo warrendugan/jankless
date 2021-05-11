@@ -1,5 +1,6 @@
 import { animate, style, transition, trigger } from '@angular/animations';
-import { ChangeDetectionStrategy, Component, HostBinding, OnDestroy, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { ChangeDetectionStrategy, Component, HostBinding, Inject, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { fromEvent, Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
@@ -21,14 +22,15 @@ export class DialogComponent implements OnInit, OnDestroy {
 
   private destroy: Subscription[] = [];
   private name = 'DIALOG';
-  private windowClicks = fromEvent(document, 'click').pipe(
+  private windowClicks = fromEvent(this.document, 'click').pipe(
     filter(({ target }) => (target as any).nodeName === this.name),
   );
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, @Inject(DOCUMENT) private document: Document) {}
 
   ngOnInit() {
     this.destroy.push(this.windowClicks.subscribe(this.close.bind(this)));
+    this.document.body.style.overflow = 'hidden';
   }
 
   close() {
@@ -37,5 +39,6 @@ export class DialogComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.destroy.forEach((sub) => sub.unsubscribe());
+    this.document.body.style.overflow = 'initial';
   }
 }

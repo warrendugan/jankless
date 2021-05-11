@@ -3,7 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
-  selector: 'form',
+  selector: 'form[ui]',
   templateUrl: './form.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

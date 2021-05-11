@@ -15,6 +15,7 @@ import { FormComponent } from './form/form.component';
 import { formConfig } from './form/form.config';
 import { WrapperComponent } from './form/wrapper.component';
 import { InputDirective } from './input/input.directive';
+import { FocusTrapDirective } from './focus-trap/focus-trap.directive';
 
 const DEPENDENCIES = {
   Angular: {
@@ -43,12 +44,13 @@ const DEPENDENCIES = {
 
 @NgModule({
   imports: [...DEPENDENCIES.Angular.modules.imports, ...DEPENDENCIES.ThirdParty.modules.imports],
-  declarations: [...DEPENDENCIES.UI.directives.declarations, ...DEPENDENCIES.UI.components.declarations],
+  declarations: [...DEPENDENCIES.UI.directives.declarations, ...DEPENDENCIES.UI.components.declarations, FocusTrapDirective],
   exports: [
     ...DEPENDENCIES.Angular.modules.exports,
     ...DEPENDENCIES.ThirdParty.modules.exports,
     ...DEPENDENCIES.UI.directives.exports,
     ...DEPENDENCIES.UI.components.exports,
+    FocusTrapDirective,
   ],
 })
 export class UiModule {

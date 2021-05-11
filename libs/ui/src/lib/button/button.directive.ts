@@ -3,7 +3,7 @@ import { RouterLink } from '@angular/router';
 import { ButtonTypes } from './button.enums';
 
 @Directive({
-  selector: 'button',
+  selector: 'button[ui]',
 })
 export class ButtonDirective extends RouterLink {
   @HostBinding('type')
