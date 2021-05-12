@@ -100,8 +100,10 @@
             "aot": true,
             "assets": [
               "apps/jankless/src/favicon.ico",
-              "apps/jankless/src/assets",
-              "apps/jankless/src/manifest.webmanifest"
+              "apps/jankless/src/robots.txt",
+              "apps/jankless/src/sitemap.xml",
+              "apps/jankless/src/manifest.webmanifest",
+              "apps/jankless/src/assets"
             ],
             "styles": [
               "apps/jankless/src/styles.scss"
