@@ -1,5 +1,6 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { RouterService } from './router.service';
+import { WindowRefService } from './window-ref.service';
 
 export enum Theme {
   Light = 'light',
@@ -14,7 +15,7 @@ export enum Theme {
 export class AppComponent implements OnInit {
   private readonly LS_KEY = 'theme';
 
-  constructor(private renderer: Renderer2, private routerService: RouterService) {}
+  constructor(private renderer: Renderer2, private routerService: RouterService, private window: WindowRefService) {}
 
   ngOnInit() {
     this.themeClass = this.theme;
@@ -39,7 +40,8 @@ export class AppComponent implements OnInit {
   }
 
   get preferredColorScheme(): Theme {
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    const win = window || this.window;
+    if (win.matchMedia('(prefers-color-scheme: dark)').matches) {
       return Theme.Dark;
     }
 

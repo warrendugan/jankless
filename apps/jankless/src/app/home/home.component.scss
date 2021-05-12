@@ -1,11 +1,11 @@
 .cards {
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  overflow-x: auto;
-  display: flex;
   align-items: center;
-  width: 100%;
+  display: flex;
+  overflow-x: auto;
   padding-bottom: var(--spacer-3);
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  width: 100%;
 
   @media (pointer: coarse) {
     &::-webkit-scrollbar {
@@ -14,15 +14,16 @@
   }
 
   card {
+    margin-left: var(--spacer-2);
     min-width: calc(100% - (var(--spacer-3) * 2));
     scroll-snap-align: center;
     scroll-snap-stop: always;
-    margin-left: var(--spacer-2);
 
     img {
-      width: 100%;
-      height: auto;
       aspect-ratio: 16/9;
+      -webkit-aspect-ratio: 16/9;
+      height: auto;
+      max-width: 100%;
       object-fit: cover;
     }
 

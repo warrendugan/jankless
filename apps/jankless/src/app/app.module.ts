@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
 import { RouterService } from './router.service';
+import { WindowRefService } from './window-ref.service';
 
 @NgModule({
   declarations: [AppComponent, ContactComponent, HomeComponent],
@@ -24,7 +25,7 @@ import { RouterService } from './router.service';
       registrationStrategy: 'registerWhenStable:30000',
     }),
   ],
-  providers: [RouterService],
+  providers: [RouterService, WindowRefService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
