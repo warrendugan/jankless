@@ -74,7 +74,7 @@ export const formConfig = {
           errorMessage: InputErrorMessages.Tel,
           inputMode: InputModes.Tel,
           enterKeyHint: EnterKeyHints.Next,
-          autoComplete: AutoComplete.TelNational,
+          autoComplete: AutoComplete.Tel,
         },
       },
     },

@@ -1,25 +1,19 @@
 <div class="container">
-  <h5 class="my-4">
+  <h2 class="my-4">
     Carousel
     <button ui class="px-2 ms-3" toggle ui [routerLink]="['', { outlets: { modal: 'dialog' } }]">&#9432;</button>
-  </h5>
+  </h2>
 
   <div class="cards">
-    <card ui *ngFor="let item of [1055, 1051, 1052, 1043]; first as isFirst">
+    <card ui *ngFor="let item of ['bee', 'bird', 'cat', 'sand']; first as isFirst">
       <div>
         <picture>
-          <source type="image/webp" srcset="https://picsum.photos/id/{{item}}/1600/900.webp" />
-          <img
-            [attr.lazy]="!isFirst"
-            width="1600"
-            height="900"
-            src="https://picsum.photos/id/{{ item }}/1600/900.jpg"
-            alt="Placeholder"
-          />
+          <source type="image/webp" srcset="assets/{{item}}.webp" />
+          <img [attr.lazy]="!isFirst" width="1600" height="900" src="assets/{{ item }}.jpeg" alt="Placeholder" />
         </picture>
       </div>
       <div class="p-3">
-        <h5>Some header</h5>
+        <h3>Some header</h3>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione nostrum quidem laborum dolorem odio maiores
           consequuntur nemo magnam minus illo cumque reiciendis modi dignissimos, dolores consequatur quas ipsum,

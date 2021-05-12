@@ -92,7 +92,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/apps/jankless",
+            "outputPath": "dist/jankless/browser",
             "index": "apps/jankless/src/index.html",
             "main": "apps/jankless/src/main.ts",
             "polyfills": "apps/jankless/src/polyfills.ts",
@@ -100,7 +100,8 @@
             "aot": true,
             "assets": [
               "apps/jankless/src/favicon.ico",
-              "apps/jankless/src/assets"
+              "apps/jankless/src/assets",
+              "apps/jankless/src/manifest.webmanifest"
             ],
             "styles": [
               "apps/jankless/src/styles.scss"
@@ -133,7 +134,9 @@
                   "maximumWarning": "6kb",
                   "maximumError": "10kb"
                 }
-              ]
+              ],
+              "serviceWorker": true,
+              "ngswConfigPath": "apps/jankless/ngsw-config.json"
             }
           }
         },
@@ -171,6 +174,41 @@
           "options": {
             "jestConfig": "apps/jankless/jest.config.js",
             "passWithNoTests": true
+          }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/jankless/server",
+            "main": "apps/jankless/src/main.server.ts",
+            "tsConfig": "apps/jankless/tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "apps/jankless/src/environments/environment.ts",
+                  "with": "apps/jankless/src/environments/environment.prod.ts"
+                }
+              ],
+              "sourceMap": false,
+              "optimization": true
+            }
+          }
+        },
+        "app-shell": {
+          "builder": "@angular-devkit/build-angular:app-shell",
+          "options": {
+            "browserTarget": "jankless:build",
+            "serverTarget": "jankless:server",
+            "route": "shell"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "jankless:build:production",
+              "serverTarget": "jankless:server:production"
+            }
           }
         }
       }
