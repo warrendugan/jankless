@@ -12,9 +12,10 @@
   top: 0;
   width: 100vw;
   z-index: 9999;
+  backdrop-filter: blur(4px) brightness(80%);
 
   &:after {
-    backdrop-filter: blur(4px) brightness(80%);
+    backdrop-filter: inherit;
     bottom: 0;
     content: '';
     height: 100vh;
@@ -24,6 +25,7 @@
     top: 0;
     width: 100vw;
     z-index: -1;
+    transition: backdrop-filter 300ms ease;
   }
 
   .container {

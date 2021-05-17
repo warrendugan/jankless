@@ -4,7 +4,7 @@ import { DialogComponent } from '@jankless/ui';
 import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,

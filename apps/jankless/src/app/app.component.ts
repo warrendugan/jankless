@@ -1,6 +1,5 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
-import { RouterService } from './router.service';
-import { WindowRefService } from './window-ref.service';
+import { Component, Inject, OnInit, PLATFORM_ID, Renderer2 } from '@angular/core';
+import { routes } from './app-routing.module';
 
 export enum Theme {
   Light = 'light',
@@ -14,8 +13,9 @@ export enum Theme {
 })
 export class AppComponent implements OnInit {
   private readonly LS_KEY = 'theme';
+  public routes = routes;
 
-  constructor(private renderer: Renderer2, private routerService: RouterService, private window: WindowRefService) {}
+  constructor(private renderer: Renderer2, @Inject(PLATFORM_ID) private platformId: any) {}
 
   ngOnInit() {
     this.themeClass = this.theme;
@@ -40,11 +40,11 @@ export class AppComponent implements OnInit {
   }
 
   get preferredColorScheme(): Theme {
-    const win = window || this.window;
-    if (win.matchMedia('(prefers-color-scheme: dark)').matches) {
-      return Theme.Dark;
-    }
-
+    // if (isPlatformBrowser(this.platformId)) {
+    //   if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    //     return Theme.Dark;
+    //   }
+    // }
     return Theme.Light;
   }
 
