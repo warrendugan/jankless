@@ -5,7 +5,7 @@ body,
 input {
   background-color: var(--light);
   color: var(--dark);
-  transition: var(--transition);
+  transition: var(--default-transition);
 
   &::selection {
     background-color: var(--primary-light);

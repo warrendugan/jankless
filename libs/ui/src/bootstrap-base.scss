@@ -54,6 +54,7 @@ $custom-colors: (
   }
 
   --transition: 200ms all ease;
+  --default-transition: 200ms background-color, color ease;
 }
 
 @mixin modifiers($map, $attribute, $prefix: '-', $separator: '-') {

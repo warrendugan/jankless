@@ -14,12 +14,12 @@
       </div>
       <div class="p-3">
         <h3>Some header</h3>
-        <p>
+        <p class="deck">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione nostrum quidem laborum dolorem odio maiores
           consequuntur nemo magnam minus illo cumque reiciendis modi dignissimos, dolores consequatur quas ipsum,
           deserunt tenetur.
         </p>
-        <button ui>Learn More</button>
+        <button ui [routerLink]="['', { outlets: { sheet: 'bottom' } }]">Learn More</button>
       </div>
     </card>
   </div>

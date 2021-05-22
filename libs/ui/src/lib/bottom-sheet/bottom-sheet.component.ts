@@ -1,14 +1,15 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { DOCUMENT } from '@angular/common';
-import { ChangeDetectionStrategy, Component, ElementRef, HostBinding, Inject, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, HostBinding, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { fromEvent, Subscription } from 'rxjs';
-import { filter } from 'rxjs/operators';
+import { fromEvent } from 'rxjs/internal/observable/fromEvent';
+import { filter } from 'rxjs/internal/operators/filter';
+import { Subscription } from 'rxjs/internal/Subscription';
 
 @Component({
-  selector: 'dialog',
-  templateUrl: './dialog.component.html',
-  styleUrls: ['./dialog.component.scss'],
+  selector: 'bottom-sheet',
+  templateUrl: './bottom-sheet.component.html',
+  styleUrls: ['./bottom-sheet.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
     trigger('fade', [
@@ -17,10 +18,10 @@ import { filter } from 'rxjs/operators';
     ]),
   ],
 })
-export class DialogComponent implements OnInit, OnDestroy {
+export class BottomSheetComponent implements OnInit {
   @HostBinding('@fade') fade = true;
   private destroy: Subscription[] = [];
-  private name = 'DIALOG';
+  private name = 'BOTTOM-SHEET';
   private windowClicks = fromEvent(this.document, 'click').pipe(
     filter(({ target }) => (target as any).nodeName === this.name),
   );
@@ -32,12 +33,12 @@ export class DialogComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.destroy.push(this.windowClicks.subscribe(this.close.bind(this)));
-    this.document.body.style.paddingInlineEnd = `${this.scrollbarOffset}px`;
+    this.document.body.style.paddingInlineEnd = `${this.scrollbarOffset || 0}px`;
     this.document.body.style.overflow = 'hidden';
   }
 
   close() {
-    this.router.navigate([{ outlets: { modal: null } }]);
+    this.router.navigate([{ outlets: { sheet: null } }]);
   }
 
   ngOnDestroy() {

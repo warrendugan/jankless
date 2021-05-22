@@ -1,6 +1,7 @@
 import 'date-input-polyfill';
 import { ButtonTypes } from './lib/button';
 import { InputTypes } from './lib/input';
+export * from './lib/bottom-sheet/bottom-sheet.component';
 export * from './lib/button';
 export * from './lib/dialog/dialog.component';
 export * from './lib/form';

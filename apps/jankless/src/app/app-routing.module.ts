@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DialogComponent } from '@jankless/ui';
+import { BottomSheetComponent, DialogComponent } from '@jankless/ui';
 import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
 
@@ -25,6 +25,11 @@ export const routes: Routes = [
     path: 'dialog',
     outlet: 'modal',
     component: DialogComponent,
+  },
+  {
+    path: 'bottom',
+    outlet: 'sheet',
+    component: BottomSheetComponent,
   },
   {
     path: '',

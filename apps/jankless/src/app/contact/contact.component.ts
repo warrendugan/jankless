@@ -45,7 +45,7 @@ export class ContactComponent {
     },
     {
       fieldGroupClassName: 'row',
-      template: '<hr aria-label="Try the date toggle">',
+      template: '<hr aria-label="Dynamically Required Fields">',
     },
     {
       fieldGroupClassName: 'row',

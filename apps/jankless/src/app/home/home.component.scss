@@ -1,3 +1,8 @@
+:host {
+  min-height: 100vh;
+  display: block;
+}
+
 .cards {
   align-items: center;
   display: flex;
@@ -29,6 +34,13 @@
 
     &:first-child {
       margin-left: initial;
+    }
+
+    .deck {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
   }
 }

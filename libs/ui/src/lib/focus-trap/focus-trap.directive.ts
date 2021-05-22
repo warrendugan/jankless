@@ -20,21 +20,23 @@ export class FocusTrapDirective implements AfterViewInit {
   constructor(private el: ElementRef, private renderer: Renderer2) {}
 
   ngAfterViewInit() {
-    this.first.focus();
-    this.renderer.listen(this.$, 'keydown', (e) => {
-      if (e.keyCode !== 9) return;
+    if (this.first) {
+      this.first.focus();
+      this.renderer.listen(this.$, 'keydown', (e) => {
+        if (e.keyCode !== 9) return;
 
-      if (e.shiftKey) {
-        if (document.activeElement === this.first) {
-          this.last.focus();
-          e.preventDefault();
+        if (e.shiftKey) {
+          if (document.activeElement === this.first) {
+            this.last.focus();
+            e.preventDefault();
+          }
+        } else {
+          if (document.activeElement === this.last) {
+            this.first.focus();
+            e.preventDefault();
+          }
         }
-      } else {
-        if (document.activeElement === this.last) {
-          this.first.focus();
-          e.preventDefault();
-        }
-      }
-    });
+      });
+    }
   }
 }

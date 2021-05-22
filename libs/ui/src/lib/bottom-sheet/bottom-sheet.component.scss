@@ -6,6 +6,7 @@
   display: flex;
   height: 100vh;
   justify-content: center;
+  align-items: flex-end;
   left: 0;
   position: fixed;
   right: 0;
@@ -30,9 +31,15 @@
 
   .container {
     background-color: var(--light);
-    border-radius: var(--spacer-2);
+    border-top-left-radius: var(--spacer-2);
+    border-top-right-radius: var(--spacer-2);
+    height: 0vh;
     max-width: 600px;
+    max-height: 90vh;
+    min-height: 40vh;
     padding: var(--spacer-5) var(--spacer-4);
+    transition: height 300ms ease;
+    transition-delay: 300ms;
   }
 
   .dark & {
