@@ -12,12 +12,6 @@
   scroll-snap-type: x mandatory;
   width: 100%;
 
-  @media (pointer: coarse) {
-    &::-webkit-scrollbar {
-      display: none;
-    }
-  }
-
   card {
     margin-left: var(--spacer-2);
     min-width: calc(100% - (var(--spacer-3) * 2));

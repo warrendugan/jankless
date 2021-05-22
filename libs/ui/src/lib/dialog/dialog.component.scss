@@ -7,6 +7,7 @@
   height: 100vh;
   justify-content: center;
   left: 0;
+  padding: 0;
   position: fixed;
   right: 0;
   top: 0;
@@ -30,9 +31,14 @@
 
   .container {
     background-color: var(--light);
-    border-radius: var(--spacer-2);
-    max-width: 600px;
+    max-width: 576px;
+    height: 100vh;
     padding: var(--spacer-5) var(--spacer-4);
+
+    @media (min-width: 576px) {
+      border-radius: var(--spacer-2);
+      height: auto;
+    }
   }
 
   .dark & {

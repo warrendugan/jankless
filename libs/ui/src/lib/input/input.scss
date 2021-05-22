@@ -1,4 +1,5 @@
 input {
+  appearance: none;
   width: 100%;
   padding: 0.25rem 0.5rem;
   caret-color: var(--primary);
@@ -30,6 +31,7 @@ date-input-polyfill {
 /* Improve native datepicker usability */
 input[type='date'] {
   position: relative;
+  min-height: 2.5rem;
 
   /* Styles the button that toggles the native datepicker */
   &::-webkit-calendar-picker-indicator {

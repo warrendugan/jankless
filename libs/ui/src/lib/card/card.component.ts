@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'card[ui]',
@@ -7,6 +7,9 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardComponent implements OnInit {
+  @HostBinding('class.border') @Input() border = true;
+  @HostBinding('class.rounded') @Input() rounded = true;
+
   constructor() {}
 
   ngOnInit(): void {}
