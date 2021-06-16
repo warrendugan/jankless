@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="372px" height="372px" viewBox="0 0 372 372" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group</title>
+    <defs>
+        <linearGradient x1="86.6864932%" y1="100%" x2="17.0809182%" y2="0%" id="linearGradient-1">
+            <stop stop-color="#ABD9F8" offset="0%"></stop>
+            <stop stop-color="#7F6C9A" offset="45.2112557%"></stop>
+            <stop stop-color="#68364A" offset="100%"></stop>
+            <stop stop-color="#FF67A3" offset="100%"></stop>
+        </linearGradient>
+        <circle id="path-2" cx="186" cy="186" r="186"></circle>
+    </defs>
+    <g id="Page-5" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group">
+            <mask id="mask-3" fill="white">
+                <use xlink:href="#path-2"></use>
+            </mask>
+            <use id="Oval" fill="url(#linearGradient-1)" xlink:href="#path-2"></use>
+            <g mask="url(#mask-3)" stroke-linejoin="round">
+                <g transform="translate(41.000000, 0.000000)">
+                    <path d="M120.993591,366.839447 C163.389219,355.560197 194.127866,332.829607 213.209534,298.647675 C232.291201,264.465743 241.704959,226.69671 241.450806,185.340576" id="Path" stroke="#FFFFFF" stroke-width="49" transform="translate(181.224704, 276.090012) scale(1, -1) translate(-181.224704, -276.090012) "></path>
+                    <path d="M0,341.779327 C36.726286,316.040759 100.152876,239.200731 112.683424,194.985863 C127.788907,141.685168 118.265017,76.6898806 84.1117554,0" id="Path" stroke="#FFFFFF" stroke-width="49"></path>
+                    <path d="M111.993591,184.903612 L119.987473,186.255577 C144.252114,193.211487 171.020929,182.762828 200.293917,154.909601 C229.566905,127.056374 248.961079,84.1595049 258.47644,26.2189941" id="Path" stroke="#FFFFFF" stroke-width="49"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
