@@ -18,6 +18,8 @@ $colors: map-merge(
 
 $custom-colors: (
   'primary-light': rgba($primary, 0.3),
+  'light': #ffffff,
+  'dark': #000000,
 );
 
 :root {

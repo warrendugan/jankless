@@ -1,4 +1,4 @@
-<header class="py-2 bg-primary mb-3">
+<!-- <header class="py-2 bg-primary mb-3">
   <div class="container d-flex align-items-center justify-content-between">
     <a routerLink="home">
       <h1 class="m-0 text-white">Jankless</h1>
@@ -16,7 +16,10 @@
 <router-outlet></router-outlet>
 <router-outlet name="modal"></router-outlet>
 <router-outlet name="sheet"></router-outlet>
-<button ui class="d-block ms-auto" toggle (click)="toggleTheme()">
+<footer class="text-center">&copy; {{ date | date: 'yyyy' }}</footer> -->
+<button ui class="d-block ms-auto bg-white text-black-50" toggle (click)="toggleTheme()">
   &#9790;<small class="d-block text-uppercase">Switch</small>
 </button>
-<footer class="text-center">&copy; {{ date | date: 'yyyy' }}</footer>
+<div class="container d-flex align-items-center justify-content-center vh-100">
+  <img [src]="'../assets/jankless-logo.svg'" alt="jankless" />
+</div>
