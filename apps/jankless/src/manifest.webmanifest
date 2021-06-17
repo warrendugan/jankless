@@ -1,8 +1,8 @@
 {
-  "name": "Jankless",
-  "short_name": "Jankless",
+  "name": "JANKLESS",
+  "short_name": "JANKLESS",
   "theme_color": "#ffffff",
-  "background_color": "#fafafa",
+  "background_color": "#ffffff",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",

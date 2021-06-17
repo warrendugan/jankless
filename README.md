@@ -1,4 +1,4 @@
-# Jankless
+# JANKLESS
 
 ## Generate an application
 
