@@ -86,4 +86,16 @@ input {
   }
 }
 
+.j {
+  color: var(--dark);
+}
+
+.l {
+  color: var(--light);
+}
+
+.lbox {
+  background: var(--dark);
+}
+
 @import './dark';

@@ -1,6 +1,5 @@
 @mixin dark() {
   background: var(--dark);
-  color: var(--light);
 
   &::placeholder {
     color: var(--gray-light);
@@ -21,6 +20,17 @@ body.dark {
     @include dark();
   }
 
+  .j {
+    color: var(--light);
+  }
+
+  .l {
+    color: var(--dark);
+  }
+
+  .lbox {
+    background: var(--light);
+  }
   hr {
     &[aria-label] {
       border-top: 1px solid var(--light);
