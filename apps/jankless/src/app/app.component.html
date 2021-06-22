@@ -18,21 +18,15 @@
 <router-outlet name="sheet"></router-outlet>
 <footer class="text-center">&copy; {{ date | date: 'yyyy' }}</footer> -->
 <button ui class="d-block ms-auto bg-white text-black-50" toggle (click)="toggleTheme()">
-  &#9790;<small class="d-block text-uppercase">Switch</small>
+  {{ theme === 'light' ? '☼' : '☾' }}<small class="d-block text-uppercase">Switch</small>
 </button>
 <div class="container d-flex align-items-center justify-content-center vh-100">
-
-  <div class="logo ">
+  <div class="logo">
     <div class="jbox">
-      <h1 class="j">
-        JANK
-      </h1>
+      <h1 class="j">JANK</h1>
     </div>
     <div class="lbox">
-      <h1 class="l">
-        LESS
-      </h1>
+      <h1 class="l">LESS</h1>
     </div>
-
-
   </div>
+</div>
